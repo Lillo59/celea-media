@@ -12,7 +12,8 @@
      --lavori N          quanti video preparare insieme (se manca: 3)
      --voce              prepara i video CON VOCE E MUSICA: file nuovi «…-voce.mp4», i muti non vengono toccati
      --variante A|B      come recita la voce (A: più sciolta; B: più lenta e marcata). Se manca: B
-     --musica 1|2        quale base musicale. Se manca: 1
+     --musica N          quale base musicale (6 pad caldo, 7 pad luminoso). Se manca: 6 e 7 a rotazione
+     --mancanti          salta i video già fatti (per riprendere un lavoro interrotto)
      --solo TESTO        con --voce: solo i video il cui nome contiene TESTO
 
    Servono Node, Playwright (con Chromium) e ffmpeg. Nessun servizio a pagamento, niente viene pubblicato. */
@@ -175,12 +176,18 @@ function annuncio(spec){
     if(specs.length>1&&!ads){ const v=varieta(specs); v.errori.forEach(e=>{ console.log("    ERRORE varietà: "+e); tuttiOk=false; }); v.avvisi.forEach(e=>console.log("    avviso varietà: "+e)); }
     specs.forEach(s=>coda.push(...lavoriDi(s,uscita)));
   }
+  // musica a rotazione (scelta di William): pad 6 e pad 7 si alternano; le tre misure della stessa pubblicità hanno la stessa musica
+  { let giro=0, ultimo=""; coda.forEach(l=>{ if(l.tipo!=="video") return; const chiave=l.base.replace(/-\d+x\d+$/,""); if(chiave!==ultimo){ giro++; ultimo=chiave; } l.musica=giro%2?6:7; }); }
   if(opz.voce){ for(let k=coda.length-1;k>=0;k--) if(coda[k].tipo!=="video"||(opz.solo&&!path.basename(coda[k].base).includes(opz.solo))) coda.splice(k,1); } // con --voce si rifanno solo i video
+  if(opz.mancanti){ // riprende un lavoro interrotto: salta i video già fatti e leggibili
+    const buono=f=>{ try{ return +require("child_process").execFileSync("ffprobe",["-v","error","-show_entries","format=duration","-of","csv=p=0",f]).toString()>1; }catch(e){ return false; } };
+    for(let k=coda.length-1;k>=0;k--){ const f=coda[k].base+(opz.voce?"-voce":"")+".mp4"; if(coda[k].tipo==="video"&&fs.existsSync(f)&&buono(f)) coda.splice(k,1); }
+  }
   if(!tuttiOk){ console.log("\nTesti da correggere: non ho esportato niente."); process.exit(2); }
   if(opz["solo-controllo"]){ console.log("\nControllo superato."); return; }
   browser=await require("playwright").chromium.launch();
   const n=Math.max(1,opz.lavori||3); let i=0;
-  await Promise.all(Array.from({length:n},async()=>{ while(i<coda.length){ const l=coda[i++]; const t0=Date.now(); const f=await (l.tipo==="video"?video:immagine)(l.spec,l.base,l.tipo==="video"&&opz.voce?{variante:opz.variante||"B",musica:opz.musica||1,suffisso:opz.suffisso||""}:null); fatti.push(...f); console.log("  fatto "+path.relative(REPO,f[0])+"  ("+((Date.now()-t0)/1000).toFixed(0)+" s)"); } }));
+  await Promise.all(Array.from({length:n},async()=>{ while(i<coda.length){ const l=coda[i++]; const t0=Date.now(); const f=await (l.tipo==="video"?video:immagine)(l.spec,l.base,l.tipo==="video"&&opz.voce?{variante:opz.variante||"B",musica:opz.musica||l.musica,suffisso:opz.suffisso||""}:null); fatti.push(...f); console.log("  fatto "+path.relative(REPO,f[0])+"  ("+((Date.now()-t0)/1000).toFixed(0)+" s)"); } }));
   if(browser) await browser.close();
   if(opz.pubblica){
     const post=path.join(REPO,"post");

@@ -183,6 +183,7 @@ def musica_allegra(variante, durata):
     def metti(sig, t0, vol, pan=0.5):
         i = int(t0 * SR)
         if i >= n: return
+        sig = sig[:len(L) - i]
         L[i:i + len(sig)] += sig * vol * (1 - pan) * 2; R[i:i + len(sig)] += sig * vol * pan * 2
     k = 0
     while k * batt < durata:
@@ -242,7 +243,9 @@ def musica_pad(variante, durata):
     b = PAD[int(variante)]; n = int(durata * SR); L = np.zeros(n + SR * 6, np.float32); R = np.zeros(n + SR * 6, np.float32)
     def metti(sig, t0, vol, pan):
         i = int(t0 * SR)
-        if i < n: L[i:i + len(sig)] += sig * vol * (1 - pan) * 2; R[i:i + len(sig)] += sig * vol * pan * 2
+        if i < n:
+            sig = sig[:len(L) - i]  # non uscire dal bordo del brano
+            L[i:i + len(sig)] += sig * vol * (1 - pan) * 2; R[i:i + len(sig)] += sig * vol * pan * 2
     k = 0; passo = b['passo']
     while k * passo < durata:
         acc = b['accordi'][k % 4]; t0 = k * passo

@@ -66,50 +66,51 @@ Niente «24 ore su 24» o «24/7», nessuna promessa di risultato, nessun concor
 «assistente AI» visibile quando parla l'assistente, disponibilità accanto a ogni funzione, nessun prezzo nelle
 pubblicità, video senza musica. Su GitHub niente tolto, nessuna spesa, nessun contatto, nessuna chiave scritta.
 
-## Voce e musica nei reel (richiesta di William, 10/11/2026) · PROVA, in attesa del sì
+## Voce e musica nei reel (richiesta di William, 10/11/2026) · FATTO
 
-**Stato:** fatti solo 3 reel di prova, rifatti dopo il primo ascolto di William. Gli altri si fanno dopo il suo sì.
-I reel muti non sono stati toccati.
+**Stato:** dopo tre giri di prova William ha scelto la voce (Serena) e la musica (pad 6 e 7 a rotazione). Fatti tutti i
+video con voce: 3 reel della settimana e 45 pubblicità. I video muti non sono stati toccati: i nuovi hanno lo stesso
+nome più `-voce`, nella stessa cartella. I 3 reel della settimana con voce sono anche in `post/`.
 
-**Voce scelta da William:** Piper TTS (gratuito, open source, licenza MIT), voce `it_IT-serena-high`, italiana, femminile.
+**Voce:** Piper TTS (gratuito, open source, licenza MIT), voce `it_IT-serena-high`, italiana, femminile.
 Licenza dei dati: **CC BY 4.0** (uso commerciale permesso, con citazione). Fonte del modello:
 https://huggingface.co/rhasspy/piper-voices/tree/main/it/it_IT/serena/high · fonte dei dati:
-https://huggingface.co/datasets/committa/serena-synthetic-it-27h. Citazione nel testo del post:
-«Voce generata con AI (Piper, voce Serena, CC BY 4.0)». Il file del modello (114 MB) non è nel repository:
+https://huggingface.co/datasets/committa/serena-synthetic-it-27h. Il file del modello (114 MB) non è nel repository:
 istruzioni in `brand-kit/voci/LEGGIMI.md`.
-Prima prova con `it_IT-paola-medium` (CC0): bocciata da William, troppo robotica. Voce maschile per Marco: non c'è
-una voce italiana di Piper di qualità sufficiente; Marco ha la stessa voce narrante.
-**Da far verificare a Legale:** i dati di Serena sono sintetici (voce clonata con un altro modello); la licenza
-dichiarata è CC BY 4.0 ma non è scritto di chi sia la voce d'origine.
+Nel testo di ogni post o annuncio con voce va scritto in fondo: «Voce generata con AI (Piper, voce Serena, CC BY 4.0)».
+Voci provate e scartate: `it_IT-paola-medium` (CC0, troppo robotica), Kokoro «Sara» e «Nicola» (Apache 2.0).
+Voce maschile per Marco: non c'è una voce italiana di Piper di qualità sufficiente; Marco ha la stessa voce narrante.
+**Da far verificare a Legale prima delle pubblicità a pagamento:** i dati di Serena sono sintetici (voce clonata con un
+altro modello); la licenza dichiarata è CC BY 4.0 ma non è scritto di chi sia la voce d'origine.
 
 **Come recita.** Velocità 1,12 nelle scene e 1,05 su gancio e chiusura (1,0 è il normale di Piper), pausa di 0,3 secondi
-tra le frasi, voce schiarita (filtro sui bassi, più presenza sulle consonanti, volume uniforme). Da questa sessione
-l'audio non si può ascoltare: il giudizio «a orecchio» è di William.
+tra le frasi, voce schiarita. Da questa sessione l'audio non si può ascoltare: il giudizio «a orecchio» è stato di William.
 
 **Regola rispettata.** La voce dice solo il gancio, i sottotitoli, lo slogan e «Provi la demo gratis su celea.it», nello
 stesso ordine dello schermo. Ogni frase parte quando appare la scritta e finisce prima che cambi: se è più lunga, la
-scena si allunga (la voce non viene accelerata). Le scritte restano. Per ogni reel c'è `…-voce-sincronia.md` con i secondi.
+scena si allunga (la voce non viene accelerata). Le scritte restano. Accanto a ogni video c'è `…-voce-sincronia.md`
+con i secondi di ogni scena. Nei video con voce la chiusura a schermo è la stessa per tutti.
 
-**Musica.** Basi strumentali originali scritte con il codice (`brand-kit/script/audio.py`), senza campioni e senza nulla
-di scaricato. Bocciate da William: le prime due (1 e 2, tappeto troppo «mistico») e le tre ritmate (3 ukulele,
-4 chitarra, 5 marimba). In prova ora, su sua richiesta, due tappeti armoniosi in tonalità maggiore: 6 «pad caldo»
-(Do maggiore) e 7 «pad luminoso» (Sol maggiore), con accordi pieni che si sciolgono uno nell'altro e poche note di
-pianoforte ovattato. William deve ancora dire sì.
+**Musica.** Basi originali scritte con il codice (`brand-kit/script/audio.py`), senza campioni e senza nulla di
+scaricato. Scelte da William: 6 «pad caldo» (Do maggiore) e 7 «pad luminoso» (Sol maggiore), a rotazione; le tre
+misure della stessa pubblicità hanno la stessa musica. Bocciate: 1 e 2 (tappeto «mistico»), 3, 4 e 5 (ritmate).
 
-**Missaggio.** Voce in primo piano, musica 18 dB sotto, nessun taglio. AAC stereo 44.100 Hz, circa −14 LUFS.
+**Missaggio.** Voce in primo piano, musica 18 dB sotto, nessun taglio. AAC stereo 44.100 Hz, circa −14 LUFS, picchi sotto −2 dB.
 
-**Comando:** `node brand-kit/script/esporta.js <cartella dei testi> --voce --musica 6` (anche `--solo`).
+**Comando:** `node brand-kit/script/esporta.js <cartella dei testi> --voce` (anche `--musica`, `--solo`, `--mancanti`).
 
-**File nuovi della prova** (sul ramo `claude/celea-post-reel-kit-adg02t`, non ancora su `main`):
+**File nuovi.**
 
-| Reel | File | Durata | Musica |
+| Che cosa | Dove | Quanti | Durata |
 |---|---|---|---|
-| Sofia · linea occupata | `brand-kit/esempi/post-2026-11-17-1-voce.mp4` | 28 s | 6 · pad caldo |
-| Marco · chiamata della sera (pubblicità) | `brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1920-voce.mp4` | 19 s | 7 · pad luminoso |
-| Celea Uffici · dietro le quinte | `brand-kit/esempi/post-2026-11-21-1-voce.mp4` | 32 s | 6 · pad caldo |
+| Reel della settimana con voce | `brand-kit/esempi/` e `post/`: `post-2026-11-17-1-voce.mp4`, `post-2026-11-19-1-voce.mp4`, `post-2026-11-21-1-voce.mp4` | 3 | 28, 26 e 32 s |
+| Pubblicità con voce | `brand-kit/pubblicita/<nicchia>/<nicchia>-<gancio>-<misura>-voce.mp4` | 45 | da 17 a 27 s |
 
-**Da sapere.** Con la voce i reel si allungano di 4–5 secondi; quello di Celea Uffici supera i 30 (31,7 s): per
-rientrare va tolta una frase.
+L'elenco completo con i link diretti è qui sotto e in `brand-kit/hq/elenco-file.md`; le anteprime in `brand-kit/esempi/indice.html`.
+
+**Fuori misura, da decidere.** Con la voce i video si allungano. Il reel di Celea Uffici dura 32 secondi (il limite
+chiesto era 30). Delle 45 pubblicità con voce, 25 superano i 20 secondi chiesti (quelle di Celea Uffici arrivano a
+27). Per rientrare vanno accorciate o tolte delle frasi nei testi: la voce non è stata accelerata.
 
 ## Elenco dei file, per la classifica e il calendario (Marketing, Brand, Strategia)
 
@@ -124,11 +125,14 @@ Repository `celea-media`, ramo principale `main`. Ogni link apre il file così c
 |---|---|---|---|---|
 | Alle 21:00 chi risponde al telefono del Suo studio? | Studi dentistici · Sofia | Post 1080x1350 · domanda | – | [post-2026-11-16-1.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-16-1.png) |
 | Pausa pranzo. La linea è occupata. | Studi dentistici · Sofia | Reel 1080x1920 · scenetta | 23 s | [post-2026-11-17-1.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-17-1.mp4) |
+| Pausa pranzo. La linea è occupata. · CON VOCE | Studi dentistici · Sofia | Reel 1080x1920 · voce e musica · scenetta | 28 s | [post-2026-11-17-1-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/esempi/post-2026-11-17-1-voce.mp4) |
 | Dai vocali da riascoltare all'agenda già pronta | Tutti i settori | Post 1080x1080 · prima-dopo | – | [post-2026-11-18-1.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-18-1.png) |
 | Sabato mattina. Arriva un'urgenza. | Studi dentistici · Sofia | Reel 1080x1920 · celeo-spiega | 22 s | [post-2026-11-19-1.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-19-1.mp4) |
+| Sabato mattina. Arriva un'urgenza. · CON VOCE | Studi dentistici · Sofia | Reel 1080x1920 · voce e musica · celeo-spiega | 26 s | [post-2026-11-19-1-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/esempi/post-2026-11-19-1-voce.mp4) |
 | È l'articolo dell'AI Act sulla trasparenza. | Tutti i settori | Post 1080x1350 · numero | – | [post-2026-11-20-1.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-20-1.png) |
 | Dove risponde l'assistente AI, e da quando | Tutti i settori | Carosello, 7 slide 1080x1350 · guida | – | [post-2026-11-20-2-1.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-20-2-1.png)<br>[post-2026-11-20-2-2.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-20-2-2.png)<br>[post-2026-11-20-2-3.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-20-2-3.png)<br>[post-2026-11-20-2-4.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-20-2-4.png)<br>[post-2026-11-20-2-5.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-20-2-5.png)<br>[post-2026-11-20-2-6.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-20-2-6.png)<br>[post-2026-11-20-2-7.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-20-2-7.png) |
 | Dietro le quinte: l'ufficio di Celea. | Celea Uffici | Reel 1080x1920 · dietro-le-quinte | 27 s | [post-2026-11-21-1.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-21-1.mp4) |
+| Dietro le quinte: l'ufficio di Celea. · CON VOCE | Celea Uffici | Reel 1080x1920 · voce e musica · dietro-le-quinte | 32 s | [post-2026-11-21-1-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/esempi/post-2026-11-21-1-voce.mp4) |
 | Leandro non dà consigli su farmaci, dosi o cure. | Cliniche veterinarie · Leandro | Storia 1080x1920 · lo-sapevi | – | [post-2026-11-22-1.png](https://raw.githubusercontent.com/Lillo59/celea-media/main/post/post-2026-11-22-1.png) |
 
 ### Pubblicità · Studi dentistici · Sofia
@@ -136,67 +140,112 @@ Repository `celea-media`, ramo principale `main`. Ogni link apre il file così c
 | Titolo | Settore | Tipo | Durata | File |
 |---|---|---|---|---|
 | Linea occupata. E chi sta chiamando? | Studi dentistici · Sofia | Pubblicità 1080x1920 · gancio «linea occupata» | 12 s | [dentisti-linea-occupata-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-linea-occupata-1080x1920.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Studi dentistici · Sofia | Pubblicità 1080x1920 · voce e musica · gancio «linea occupata» | 19 s | [dentisti-linea-occupata-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-linea-occupata-1080x1920-voce.mp4) |
 | Linea occupata. E chi sta chiamando? | Studi dentistici · Sofia | Pubblicità 1080x1350 · gancio «linea occupata» | 12 s | [dentisti-linea-occupata-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-linea-occupata-1080x1350.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Studi dentistici · Sofia | Pubblicità 1080x1350 · voce e musica · gancio «linea occupata» | 19 s | [dentisti-linea-occupata-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-linea-occupata-1080x1350-voce.mp4) |
 | Linea occupata. E chi sta chiamando? | Studi dentistici · Sofia | Pubblicità 1080x1080 · gancio «linea occupata» | 12 s | [dentisti-linea-occupata-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-linea-occupata-1080x1080.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Studi dentistici · Sofia | Pubblicità 1080x1080 · voce e musica · gancio «linea occupata» | 20 s | [dentisti-linea-occupata-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-linea-occupata-1080x1080-voce.mp4) |
 | Sono le 21:07. Lo studio è chiuso. | Studi dentistici · Sofia | Pubblicità 1080x1920 · gancio «chiamata della sera» | 13 s | [dentisti-chiamata-della-sera-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-chiamata-della-sera-1080x1920.mp4) |
+| Sono le 21:07. Lo studio è chiuso. · CON VOCE | Studi dentistici · Sofia | Pubblicità 1080x1920 · voce e musica · gancio «chiamata della sera» | 21 s | [dentisti-chiamata-della-sera-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-chiamata-della-sera-1080x1920-voce.mp4) |
 | Sono le 21:07. Lo studio è chiuso. | Studi dentistici · Sofia | Pubblicità 1080x1350 · gancio «chiamata della sera» | 13 s | [dentisti-chiamata-della-sera-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-chiamata-della-sera-1080x1350.mp4) |
+| Sono le 21:07. Lo studio è chiuso. · CON VOCE | Studi dentistici · Sofia | Pubblicità 1080x1350 · voce e musica · gancio «chiamata della sera» | 21 s | [dentisti-chiamata-della-sera-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-chiamata-della-sera-1080x1350-voce.mp4) |
 | Sono le 21:07. Lo studio è chiuso. | Studi dentistici · Sofia | Pubblicità 1080x1080 · gancio «chiamata della sera» | 13 s | [dentisti-chiamata-della-sera-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-chiamata-della-sera-1080x1080.mp4) |
+| Sono le 21:07. Lo studio è chiuso. · CON VOCE | Studi dentistici · Sofia | Pubblicità 1080x1080 · voce e musica · gancio «chiamata della sera» | 21 s | [dentisti-chiamata-della-sera-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-chiamata-della-sera-1080x1080-voce.mp4) |
 | Lo provi adesso. | Studi dentistici · Sofia | Pubblicità 1080x1920 · gancio «lo provi adesso» | 12 s | [dentisti-lo-provi-adesso-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-lo-provi-adesso-1080x1920.mp4) |
+| Lo provi adesso. · CON VOCE | Studi dentistici · Sofia | Pubblicità 1080x1920 · voce e musica · gancio «lo provi adesso» | 17 s | [dentisti-lo-provi-adesso-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-lo-provi-adesso-1080x1920-voce.mp4) |
 | Lo provi adesso. | Studi dentistici · Sofia | Pubblicità 1080x1350 · gancio «lo provi adesso» | 12 s | [dentisti-lo-provi-adesso-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-lo-provi-adesso-1080x1350.mp4) |
+| Lo provi adesso. · CON VOCE | Studi dentistici · Sofia | Pubblicità 1080x1350 · voce e musica · gancio «lo provi adesso» | 18 s | [dentisti-lo-provi-adesso-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-lo-provi-adesso-1080x1350-voce.mp4) |
 | Lo provi adesso. | Studi dentistici · Sofia | Pubblicità 1080x1080 · gancio «lo provi adesso» | 12 s | [dentisti-lo-provi-adesso-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-lo-provi-adesso-1080x1080.mp4) |
+| Lo provi adesso. · CON VOCE | Studi dentistici · Sofia | Pubblicità 1080x1080 · voce e musica · gancio «lo provi adesso» | 17 s | [dentisti-lo-provi-adesso-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/dentisti/dentisti-lo-provi-adesso-1080x1080-voce.mp4) |
 
 ### Pubblicità · Agenzie immobiliari · Marco
 
 | Titolo | Settore | Tipo | Durata | File |
 |---|---|---|---|---|
 | Linea occupata. E chi sta chiamando? | Agenzie immobiliari · Marco | Pubblicità 1080x1920 · gancio «linea occupata» | 13 s | [immobiliare-linea-occupata-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-linea-occupata-1080x1920.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Agenzie immobiliari · Marco | Pubblicità 1080x1920 · voce e musica · gancio «linea occupata» | 19 s | [immobiliare-linea-occupata-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-linea-occupata-1080x1920-voce.mp4) |
 | Linea occupata. E chi sta chiamando? | Agenzie immobiliari · Marco | Pubblicità 1080x1350 · gancio «linea occupata» | 13 s | [immobiliare-linea-occupata-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-linea-occupata-1080x1350.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Agenzie immobiliari · Marco | Pubblicità 1080x1350 · voce e musica · gancio «linea occupata» | 20 s | [immobiliare-linea-occupata-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-linea-occupata-1080x1350-voce.mp4) |
 | Linea occupata. E chi sta chiamando? | Agenzie immobiliari · Marco | Pubblicità 1080x1080 · gancio «linea occupata» | 13 s | [immobiliare-linea-occupata-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-linea-occupata-1080x1080.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Agenzie immobiliari · Marco | Pubblicità 1080x1080 · voce e musica · gancio «linea occupata» | 20 s | [immobiliare-linea-occupata-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-linea-occupata-1080x1080-voce.mp4) |
 | Sono le 20:40. L'agenzia è chiusa. | Agenzie immobiliari · Marco | Pubblicità 1080x1920 · gancio «chiamata della sera» | 12 s | [immobiliare-chiamata-della-sera-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1920.mp4) |
+| Sono le 20:40. L'agenzia è chiusa. · CON VOCE | Agenzie immobiliari · Marco | Pubblicità 1080x1920 · voce e musica · gancio «chiamata della sera» | 20 s | [immobiliare-chiamata-della-sera-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1920-voce.mp4) |
 | Sono le 20:40. L'agenzia è chiusa. | Agenzie immobiliari · Marco | Pubblicità 1080x1350 · gancio «chiamata della sera» | 12 s | [immobiliare-chiamata-della-sera-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1350.mp4) |
+| Sono le 20:40. L'agenzia è chiusa. · CON VOCE | Agenzie immobiliari · Marco | Pubblicità 1080x1350 · voce e musica · gancio «chiamata della sera» | 20 s | [immobiliare-chiamata-della-sera-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1350-voce.mp4) |
 | Sono le 20:40. L'agenzia è chiusa. | Agenzie immobiliari · Marco | Pubblicità 1080x1080 · gancio «chiamata della sera» | 12 s | [immobiliare-chiamata-della-sera-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1080.mp4) |
+| Sono le 20:40. L'agenzia è chiusa. · CON VOCE | Agenzie immobiliari · Marco | Pubblicità 1080x1080 · voce e musica · gancio «chiamata della sera» | 21 s | [immobiliare-chiamata-della-sera-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1080-voce.mp4) |
 | Lo provi adesso. | Agenzie immobiliari · Marco | Pubblicità 1080x1920 · gancio «lo provi adesso» | 12 s | [immobiliare-lo-provi-adesso-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-lo-provi-adesso-1080x1920.mp4) |
+| Lo provi adesso. · CON VOCE | Agenzie immobiliari · Marco | Pubblicità 1080x1920 · voce e musica · gancio «lo provi adesso» | 18 s | [immobiliare-lo-provi-adesso-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-lo-provi-adesso-1080x1920-voce.mp4) |
 | Lo provi adesso. | Agenzie immobiliari · Marco | Pubblicità 1080x1350 · gancio «lo provi adesso» | 12 s | [immobiliare-lo-provi-adesso-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-lo-provi-adesso-1080x1350.mp4) |
+| Lo provi adesso. · CON VOCE | Agenzie immobiliari · Marco | Pubblicità 1080x1350 · voce e musica · gancio «lo provi adesso» | 17 s | [immobiliare-lo-provi-adesso-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-lo-provi-adesso-1080x1350-voce.mp4) |
 | Lo provi adesso. | Agenzie immobiliari · Marco | Pubblicità 1080x1080 · gancio «lo provi adesso» | 12 s | [immobiliare-lo-provi-adesso-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-lo-provi-adesso-1080x1080.mp4) |
+| Lo provi adesso. · CON VOCE | Agenzie immobiliari · Marco | Pubblicità 1080x1080 · voce e musica · gancio «lo provi adesso» | 18 s | [immobiliare-lo-provi-adesso-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/immobiliare/immobiliare-lo-provi-adesso-1080x1080-voce.mp4) |
 
 ### Pubblicità · Strutture ricettive · Elena
 
 | Titolo | Settore | Tipo | Durata | File |
 |---|---|---|---|---|
 | Linea occupata. E chi sta chiamando? | Strutture ricettive · Elena | Pubblicità 1080x1920 · gancio «linea occupata» | 13 s | [ricettive-linea-occupata-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-linea-occupata-1080x1920.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Strutture ricettive · Elena | Pubblicità 1080x1920 · voce e musica · gancio «linea occupata» | 21 s | [ricettive-linea-occupata-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-linea-occupata-1080x1920-voce.mp4) |
 | Linea occupata. E chi sta chiamando? | Strutture ricettive · Elena | Pubblicità 1080x1350 · gancio «linea occupata» | 13 s | [ricettive-linea-occupata-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-linea-occupata-1080x1350.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Strutture ricettive · Elena | Pubblicità 1080x1350 · voce e musica · gancio «linea occupata» | 21 s | [ricettive-linea-occupata-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-linea-occupata-1080x1350-voce.mp4) |
 | Linea occupata. E chi sta chiamando? | Strutture ricettive · Elena | Pubblicità 1080x1080 · gancio «linea occupata» | 13 s | [ricettive-linea-occupata-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-linea-occupata-1080x1080.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Strutture ricettive · Elena | Pubblicità 1080x1080 · voce e musica · gancio «linea occupata» | 21 s | [ricettive-linea-occupata-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-linea-occupata-1080x1080-voce.mp4) |
 | Sono le 22:15. La reception è chiusa. | Strutture ricettive · Elena | Pubblicità 1080x1920 · gancio «chiamata della sera» | 13 s | [ricettive-chiamata-della-sera-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-chiamata-della-sera-1080x1920.mp4) |
+| Sono le 22:15. La reception è chiusa. · CON VOCE | Strutture ricettive · Elena | Pubblicità 1080x1920 · voce e musica · gancio «chiamata della sera» | 21 s | [ricettive-chiamata-della-sera-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-chiamata-della-sera-1080x1920-voce.mp4) |
 | Sono le 22:15. La reception è chiusa. | Strutture ricettive · Elena | Pubblicità 1080x1350 · gancio «chiamata della sera» | 13 s | [ricettive-chiamata-della-sera-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-chiamata-della-sera-1080x1350.mp4) |
+| Sono le 22:15. La reception è chiusa. · CON VOCE | Strutture ricettive · Elena | Pubblicità 1080x1350 · voce e musica · gancio «chiamata della sera» | 21 s | [ricettive-chiamata-della-sera-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-chiamata-della-sera-1080x1350-voce.mp4) |
 | Sono le 22:15. La reception è chiusa. | Strutture ricettive · Elena | Pubblicità 1080x1080 · gancio «chiamata della sera» | 13 s | [ricettive-chiamata-della-sera-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-chiamata-della-sera-1080x1080.mp4) |
+| Sono le 22:15. La reception è chiusa. · CON VOCE | Strutture ricettive · Elena | Pubblicità 1080x1080 · voce e musica · gancio «chiamata della sera» | 22 s | [ricettive-chiamata-della-sera-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-chiamata-della-sera-1080x1080-voce.mp4) |
 | Lo provi adesso. | Strutture ricettive · Elena | Pubblicità 1080x1920 · gancio «lo provi adesso» | 12 s | [ricettive-lo-provi-adesso-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-lo-provi-adesso-1080x1920.mp4) |
+| Lo provi adesso. · CON VOCE | Strutture ricettive · Elena | Pubblicità 1080x1920 · voce e musica · gancio «lo provi adesso» | 17 s | [ricettive-lo-provi-adesso-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-lo-provi-adesso-1080x1920-voce.mp4) |
 | Lo provi adesso. | Strutture ricettive · Elena | Pubblicità 1080x1350 · gancio «lo provi adesso» | 12 s | [ricettive-lo-provi-adesso-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-lo-provi-adesso-1080x1350.mp4) |
+| Lo provi adesso. · CON VOCE | Strutture ricettive · Elena | Pubblicità 1080x1350 · voce e musica · gancio «lo provi adesso» | 17 s | [ricettive-lo-provi-adesso-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-lo-provi-adesso-1080x1350-voce.mp4) |
 | Lo provi adesso. | Strutture ricettive · Elena | Pubblicità 1080x1080 · gancio «lo provi adesso» | 12 s | [ricettive-lo-provi-adesso-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-lo-provi-adesso-1080x1080.mp4) |
+| Lo provi adesso. · CON VOCE | Strutture ricettive · Elena | Pubblicità 1080x1080 · voce e musica · gancio «lo provi adesso» | 17 s | [ricettive-lo-provi-adesso-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/ricettive/ricettive-lo-provi-adesso-1080x1080-voce.mp4) |
 
 ### Pubblicità · Celea Uffici
 
 | Titolo | Settore | Tipo | Durata | File |
 |---|---|---|---|---|
 | Linea occupata? L'ufficio risponde. | Celea Uffici | Pubblicità 1080x1920 · gancio «linea occupata» | 17 s | [uffici-linea-occupata-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-linea-occupata-1080x1920.mp4) |
+| Linea occupata? L'ufficio risponde. · CON VOCE | Celea Uffici | Pubblicità 1080x1920 · voce e musica · gancio «linea occupata» | 26 s | [uffici-linea-occupata-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-linea-occupata-1080x1920-voce.mp4) |
 | Linea occupata? L'ufficio risponde. | Celea Uffici | Pubblicità 1080x1350 · gancio «linea occupata» | 17 s | [uffici-linea-occupata-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-linea-occupata-1080x1350.mp4) |
+| Linea occupata? L'ufficio risponde. · CON VOCE | Celea Uffici | Pubblicità 1080x1350 · voce e musica · gancio «linea occupata» | 25 s | [uffici-linea-occupata-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-linea-occupata-1080x1350-voce.mp4) |
 | Linea occupata? L'ufficio risponde. | Celea Uffici | Pubblicità 1080x1080 · gancio «linea occupata» | 17 s | [uffici-linea-occupata-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-linea-occupata-1080x1080.mp4) |
+| Linea occupata? L'ufficio risponde. · CON VOCE | Celea Uffici | Pubblicità 1080x1080 · voce e musica · gancio «linea occupata» | 25 s | [uffici-linea-occupata-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-linea-occupata-1080x1080-voce.mp4) |
 | Sono le 21:00. Chi prepara il lavoro di domani? | Celea Uffici | Pubblicità 1080x1920 · gancio «chiamata della sera» | 17 s | [uffici-chiamata-della-sera-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-chiamata-della-sera-1080x1920.mp4) |
+| Sono le 21:00. Chi prepara il lavoro di domani? · CON VOCE | Celea Uffici | Pubblicità 1080x1920 · voce e musica · gancio «chiamata della sera» | 27 s | [uffici-chiamata-della-sera-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-chiamata-della-sera-1080x1920-voce.mp4) |
 | Sono le 21:00. Chi prepara il lavoro di domani? | Celea Uffici | Pubblicità 1080x1350 · gancio «chiamata della sera» | 17 s | [uffici-chiamata-della-sera-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-chiamata-della-sera-1080x1350.mp4) |
+| Sono le 21:00. Chi prepara il lavoro di domani? · CON VOCE | Celea Uffici | Pubblicità 1080x1350 · voce e musica · gancio «chiamata della sera» | 27 s | [uffici-chiamata-della-sera-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-chiamata-della-sera-1080x1350-voce.mp4) |
 | Sono le 21:00. Chi prepara il lavoro di domani? | Celea Uffici | Pubblicità 1080x1080 · gancio «chiamata della sera» | 17 s | [uffici-chiamata-della-sera-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-chiamata-della-sera-1080x1080.mp4) |
+| Sono le 21:00. Chi prepara il lavoro di domani? · CON VOCE | Celea Uffici | Pubblicità 1080x1080 · voce e musica · gancio «chiamata della sera» | 27 s | [uffici-chiamata-della-sera-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-chiamata-della-sera-1080x1080-voce.mp4) |
 | Lo provi adesso. | Celea Uffici | Pubblicità 1080x1920 · gancio «lo provi adesso» | 18 s | [uffici-lo-provi-adesso-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-lo-provi-adesso-1080x1920.mp4) |
+| Lo provi adesso. · CON VOCE | Celea Uffici | Pubblicità 1080x1920 · voce e musica · gancio «lo provi adesso» | 26 s | [uffici-lo-provi-adesso-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-lo-provi-adesso-1080x1920-voce.mp4) |
 | Lo provi adesso. | Celea Uffici | Pubblicità 1080x1350 · gancio «lo provi adesso» | 18 s | [uffici-lo-provi-adesso-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-lo-provi-adesso-1080x1350.mp4) |
+| Lo provi adesso. · CON VOCE | Celea Uffici | Pubblicità 1080x1350 · voce e musica · gancio «lo provi adesso» | 26 s | [uffici-lo-provi-adesso-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-lo-provi-adesso-1080x1350-voce.mp4) |
 | Lo provi adesso. | Celea Uffici | Pubblicità 1080x1080 · gancio «lo provi adesso» | 18 s | [uffici-lo-provi-adesso-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-lo-provi-adesso-1080x1080.mp4) |
+| Lo provi adesso. · CON VOCE | Celea Uffici | Pubblicità 1080x1080 · voce e musica · gancio «lo provi adesso» | 26 s | [uffici-lo-provi-adesso-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/uffici/uffici-lo-provi-adesso-1080x1080-voce.mp4) |
 
 ### Pubblicità · Cliniche veterinarie · Leandro
 
 | Titolo | Settore | Tipo | Durata | File |
 |---|---|---|---|---|
 | Linea occupata. E chi sta chiamando? | Cliniche veterinarie · Leandro | Pubblicità 1080x1920 · gancio «linea occupata» | 13 s | [veterinari-linea-occupata-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-linea-occupata-1080x1920.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Cliniche veterinarie · Leandro | Pubblicità 1080x1920 · voce e musica · gancio «linea occupata» | 20 s | [veterinari-linea-occupata-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-linea-occupata-1080x1920-voce.mp4) |
 | Linea occupata. E chi sta chiamando? | Cliniche veterinarie · Leandro | Pubblicità 1080x1350 · gancio «linea occupata» | 13 s | [veterinari-linea-occupata-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-linea-occupata-1080x1350.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Cliniche veterinarie · Leandro | Pubblicità 1080x1350 · voce e musica · gancio «linea occupata» | 21 s | [veterinari-linea-occupata-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-linea-occupata-1080x1350-voce.mp4) |
 | Linea occupata. E chi sta chiamando? | Cliniche veterinarie · Leandro | Pubblicità 1080x1080 · gancio «linea occupata» | 13 s | [veterinari-linea-occupata-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-linea-occupata-1080x1080.mp4) |
+| Linea occupata. E chi sta chiamando? · CON VOCE | Cliniche veterinarie · Leandro | Pubblicità 1080x1080 · voce e musica · gancio «linea occupata» | 21 s | [veterinari-linea-occupata-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-linea-occupata-1080x1080-voce.mp4) |
 | Sono le 20:50. La clinica è chiusa. | Cliniche veterinarie · Leandro | Pubblicità 1080x1920 · gancio «chiamata della sera» | 13 s | [veterinari-chiamata-della-sera-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-chiamata-della-sera-1080x1920.mp4) |
+| Sono le 20:50. La clinica è chiusa. · CON VOCE | Cliniche veterinarie · Leandro | Pubblicità 1080x1920 · voce e musica · gancio «chiamata della sera» | 21 s | [veterinari-chiamata-della-sera-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-chiamata-della-sera-1080x1920-voce.mp4) |
 | Sono le 20:50. La clinica è chiusa. | Cliniche veterinarie · Leandro | Pubblicità 1080x1350 · gancio «chiamata della sera» | 13 s | [veterinari-chiamata-della-sera-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-chiamata-della-sera-1080x1350.mp4) |
+| Sono le 20:50. La clinica è chiusa. · CON VOCE | Cliniche veterinarie · Leandro | Pubblicità 1080x1350 · voce e musica · gancio «chiamata della sera» | 21 s | [veterinari-chiamata-della-sera-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-chiamata-della-sera-1080x1350-voce.mp4) |
 | Sono le 20:50. La clinica è chiusa. | Cliniche veterinarie · Leandro | Pubblicità 1080x1080 · gancio «chiamata della sera» | 13 s | [veterinari-chiamata-della-sera-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-chiamata-della-sera-1080x1080.mp4) |
+| Sono le 20:50. La clinica è chiusa. · CON VOCE | Cliniche veterinarie · Leandro | Pubblicità 1080x1080 · voce e musica · gancio «chiamata della sera» | 21 s | [veterinari-chiamata-della-sera-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-chiamata-della-sera-1080x1080-voce.mp4) |
 | Lo provi adesso. | Cliniche veterinarie · Leandro | Pubblicità 1080x1920 · gancio «lo provi adesso» | 12 s | [veterinari-lo-provi-adesso-1080x1920.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-lo-provi-adesso-1080x1920.mp4) |
+| Lo provi adesso. · CON VOCE | Cliniche veterinarie · Leandro | Pubblicità 1080x1920 · voce e musica · gancio «lo provi adesso» | 17 s | [veterinari-lo-provi-adesso-1080x1920-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-lo-provi-adesso-1080x1920-voce.mp4) |
 | Lo provi adesso. | Cliniche veterinarie · Leandro | Pubblicità 1080x1350 · gancio «lo provi adesso» | 12 s | [veterinari-lo-provi-adesso-1080x1350.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-lo-provi-adesso-1080x1350.mp4) |
+| Lo provi adesso. · CON VOCE | Cliniche veterinarie · Leandro | Pubblicità 1080x1350 · voce e musica · gancio «lo provi adesso» | 17 s | [veterinari-lo-provi-adesso-1080x1350-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-lo-provi-adesso-1080x1350-voce.mp4) |
 | Lo provi adesso. | Cliniche veterinarie · Leandro | Pubblicità 1080x1080 · gancio «lo provi adesso» | 12 s | [veterinari-lo-provi-adesso-1080x1080.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-lo-provi-adesso-1080x1080.mp4) |
+| Lo provi adesso. · CON VOCE | Cliniche veterinarie · Leandro | Pubblicità 1080x1080 · voce e musica · gancio «lo provi adesso» | 17 s | [veterinari-lo-provi-adesso-1080x1080-voce.mp4](https://raw.githubusercontent.com/Lillo59/celea-media/main/brand-kit/pubblicita/veterinari/veterinari-lo-provi-adesso-1080x1080-voce.mp4) |
