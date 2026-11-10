@@ -33,3 +33,7 @@ Solo file: nessuna campagna creata, nessuna spesa. Nessun prezzo nel video e nel
 Superato: niente «24 ore su 24» o «24/7», nessuna promessa di risultato, nessun concorrente, nessun prezzo; scritta «assistente AI» sempre visibile; disponibilità scritta.
 
 Musica: nessuna traccia nel file (audio muto). Se serve, solo brani senza diritti dalla libreria di Meta.
+
+## Versioni con voce (file «…-voce.mp4»)
+
+In fondo al testo dell'annuncio aggiungere: «Voce generata con AI».

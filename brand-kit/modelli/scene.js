@@ -231,7 +231,7 @@
     // tempi
     var tA=+s.apertura_ms||(ad?2000:2800), fine=+s.chiusura_ms||(ad?3000:3600), ritmo=ad?[2000,700,42]:[2600,900,50];
     var inizio=[], dur=[], t=tA;
-    frasi.forEach(function(f){ var d=Math.max(ritmo[0],ritmo[1]+ritmo[2]*f.length); inizio.push(t); dur.push(d); t+=d; });
+    frasi.forEach(function(f,i){ var d=Math.max(ritmo[0],ritmo[1]+ritmo[2]*f.length); if(s.durate&&s.durate[i]) d=Math.max(d,+s.durate[i]); inizio.push(t); dur.push(d); t+=d; }); // con la voce: la scena dura almeno quanto la frase detta
     var tC=t, D=tC+fine, T=[tA], m=frasi.length||1, np=scena.passi;
     for(var j=1;j<=np;j++){
       var k=Math.floor((j-1)*m/np), primo=j; while(primo>1&&Math.floor((primo-2)*m/np)===k) primo--;
@@ -277,6 +277,7 @@
     var inv=h("div","invito",C.fmt(s.invito||(ad?"Provi la demo gratis su celea.it":"Provi la demo gratis")),cz);
     var www=h("div","www","www.celea.it",cz);
     var nt=dd?h("div","nota",C.esc(dd),cz):null;
-    C.entra(cz,tC,{fx:"fade",dur:350}); C.entra(l2,tC+150,{fx:"pop",dur:600}); C.entra(sl,tC+500,{fx:"su"}); C.entra(inv,tC+850,{fx:"su"}); C.entra(www,tC+1100,{fx:"pop"}); if(nt) C.entra(nt,tC+1350,{fx:"fade"});
+    C.entra(cz,tC,{fx:"fade",dur:350}); C.entra(l2,tC+150,{fx:"pop",dur:600}); C.entra(sl,tC+500,{fx:"su"}); var tInv=tC+(+s.invito_ms||850); C.entra(inv,tInv,{fx:"su"}); C.entra(www,tInv+250,{fx:"pop"}); if(nt) C.entra(nt,tInv+500,{fx:"fade"});
+    C.tempi={gancio:160,frasi:inizio,durate:dur,chiusura:tC,slogan:tC+500,invito:tInv,durata:D};
   };
 })();

@@ -66,6 +66,50 @@ Niente «24 ore su 24» o «24/7», nessuna promessa di risultato, nessun concor
 «assistente AI» visibile quando parla l'assistente, disponibilità accanto a ogni funzione, nessun prezzo nelle
 pubblicità, video senza musica. Su GitHub niente tolto, nessuna spesa, nessun contatto, nessuna chiave scritta.
 
+## Voce e musica nei reel (richiesta di William, 10/11/2026) · PROVA, in attesa del sì
+
+**Stato:** fatti solo 3 reel di prova. Gli altri si fanno dopo il sì di William. I reel muti non sono stati toccati.
+
+**Voce.** Piper TTS (gratuito, open source, licenza MIT), voce `it_IT-paola-medium`, italiana, femminile.
+Licenza dei dati della voce: **CC0 1.0** (uso commerciale permesso, nessuna citazione dovuta), letta il 10/11/2026.
+Fonte del modello: https://huggingface.co/rhasspy/piper-voices/tree/main/it/it_IT/paola/medium ·
+fonte dei dati: https://huggingface.co/datasets/paolapersico1/Voice-Dataset-Italian.
+Il file del modello (63 MB) non è nel repository: istruzioni in `brand-kit/voci/LEGGIMI.md`.
+Voce maschile per Marco: l'unica italiana di Piper è `riccardo`, di qualità «x_low» (16.000 Hz): non usata.
+Marco ha la stessa voce narrante. Scartata anche `serena` (CC-BY-4.0, dati sintetici).
+
+**Come recita.** Due varianti provate sul primo reel: A (velocità 1,08) e B (velocità 1,16, più pausa tra le frasi,
+intonazione più variata). Scelta la **B**: è la più lenta delle due (circa 17 caratteri al secondo) e lascia più pausa.
+La scelta è fatta sui numeri: da questa sessione l'audio non si può ascoltare, quindi il giudizio «a orecchio» resta a William.
+Gancio e chiusura sono detti un po' più svelti e a volume un po' più alto.
+
+**Regola rispettata.** La voce dice solo il gancio, i sottotitoli, lo slogan e «Provi la demo gratis su celea.it», nello
+stesso ordine dello schermo. Ogni frase parte quando appare la scritta e finisce prima che cambi: se la frase detta è più
+lunga, la scena si allunga (la voce non viene accelerata). Le scritte restano. Per ogni reel c'è la tabella
+`…-voce-sincronia.md` con i secondi. Nei reel con voce la chiusura a schermo è la stessa per tutti.
+
+**Musica.** Due basi strumentali originali scritte con il codice (`brand-kit/script/audio.py`): onde sinusoidali, nessun
+campione, niente scaricato. Base 1 in Re maggiore a 76 battiti; base 2 in Fa maggiore a 68. Da ascoltare:
+`brand-kit/audio/base-musicale-1.m4a` e `-2.m4a`.
+
+**Missaggio.** Voce in primo piano, musica 18 dB sotto, entrata e uscita sfumate, nessun taglio. Audio AAC stereo
+44.100 Hz, normalizzato a circa −14 LUFS con picchi sotto −2 dB.
+
+**Comando:** `node brand-kit/script/esporta.js <cartella dei testi> --voce` (opzioni `--variante`, `--musica`, `--solo`).
+
+**File nuovi della prova** (sul ramo `claude/celea-post-reel-kit-adg02t`, non ancora su `main`):
+
+| Reel | File | Durata | Musica |
+|---|---|---|---|
+| Sofia · linea occupata | `brand-kit/esempi/post-2026-11-17-1-voce.mp4` | 27 s | base 1 |
+| Marco · chiamata della sera (pubblicità) | `brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1920-voce.mp4` | 19 s | base 1 |
+| Celea Uffici · dietro le quinte | `brand-kit/esempi/post-2026-11-21-1-voce.mp4` | 31 s | base 2 |
+
+Accanto a ognuno: `…-voce-sincronia.md`, `…-voce-copertina.jpg`, `…-voce-fotogramma.jpg`.
+
+**Da sapere.** Con la voce i reel si allungano di 4–5 secondi; quello di Celea Uffici arriva a 30,6 secondi, appena sopra
+i 30. Nel testo di ogni post con voce va aggiunto in fondo «Voce generata con AI».
+
 ## Elenco dei file, per la classifica e il calendario (Marketing, Brand, Strategia)
 
 Aggiornato il 10/11/2026 dopo l'approvazione di William. I file sono sul ramo principale `main`.

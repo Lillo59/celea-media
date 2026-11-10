@@ -37,6 +37,13 @@ fs.readdirSync(path.join(KIT,"testi","pubblicita")).filter(f=>f.endsWith(".txt")
   });
 });
 
+// 3 · versioni con voce e musica: se esiste «…-voce.mp4» accanto al muto, compare subito dopo
+for(let i=voci.length-1;i>=0;i--){
+  const v=voci[i]; if(!v.file[0].endsWith(".mp4")) continue;
+  const muto=v.gruppo.startsWith("Settimana")?"brand-kit/esempi/"+v.nome+".mp4":v.file[0], voce=muto.replace(/\.mp4$/,"-voce.mp4");
+  if(fs.existsSync(path.join(REPO,voce))) voci.splice(i+1,0,{...v,nome:v.nome+"-voce",titolo:v.titolo+" · CON VOCE",tipo:v.tipo+" · voce e musica",file:[voce],poster:voce.replace(".mp4","-copertina.jpg"),durata:durata(path.join(REPO,voce))});
+}
+
 /* ---------- pagina ---------- */
 const rel=p=>path.relative(path.join(KIT,"esempi"),path.join(REPO,p)).split(path.sep).join("/");
 let gruppo="", corpo="";

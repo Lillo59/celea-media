@@ -212,7 +212,7 @@
     if(spec.tipo==="reel"||spec.tipo==="pubblicita") C.video(spec,W,H);
     else (FORMATI[spec.formato]||FORMATI["domanda"])(spec,W,H);
     C.seek(spec.tempo!=null?spec.tempo:(C.durata?0:1e9));
-    return {durata:C.durata,larghezza:W,altezza:H};
+    return {durata:C.durata,larghezza:W,altezza:H,tempi:C.tempi||null};
   };
   window.addEventListener("DOMContentLoaded",function(){
     var spec=window.__SPEC;
