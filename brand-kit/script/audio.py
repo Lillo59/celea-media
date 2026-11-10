@@ -125,6 +125,92 @@ def musica(variante, durata):
     return st / max(1e-6, np.abs(st).max()) * 0.5
 
 
+
+# ---------------------------------------------------------------- musica allegra (varianti 3, 4, 5)
+# Strumenti «acustici» fatti con il codice: corda pizzicata (metodo Karplus-Strong), marimba, basso,
+# cassa morbida, schiocco di dita e shaker. Nessun campione, niente scaricato.
+_corde = {}
+def corda(m, dur, morbida=0.996, seme=0):
+    k = (m, round(dur, 2), morbida)
+    if k not in _corde:
+        N = max(2, int(round(SR / nota(m)))); rng = np.random.default_rng(1000 + m + seme)
+        p = rng.uniform(-1, 1, N).astype(np.float32); p = (p + np.roll(p, 1) + np.roll(p, 2)) / 3  # pizzico meno aspro
+        giri = int(dur * SR / N) + 1; out = np.empty(giri * N, np.float32)
+        for g in range(giri):
+            out[g * N:(g + 1) * N] = p; p = morbida * 0.5 * (p + np.roll(p, 1))
+        out = out[:int(dur * SR)]; t = np.arange(len(out)) / SR
+        _corde[k] = out * np.minimum(1, t / 0.003) * np.minimum(1, (dur - t) / 0.05)
+    return _corde[k]
+
+def marimba(m, dur=0.9):
+    t = np.arange(int(dur * SR)) / SR; f = nota(m)
+    return ((np.sin(2 * math.pi * f * t) + 0.45 * np.sin(2 * math.pi * 4 * f * t) * np.exp(-t * 14)) * np.exp(-t * 6.5) * np.minimum(1, t / 0.004)).astype(np.float32)
+
+def cassa():
+    t = np.arange(int(0.22 * SR)) / SR; f = 48 + 70 * np.exp(-t * 28)
+    return (np.sin(2 * math.pi * np.cumsum(f) / SR) * np.exp(-t * 16)).astype(np.float32)
+
+def schiocco(seme):
+    rng = np.random.default_rng(seme); t = np.arange(int(0.09 * SR)) / SR
+    r = rng.uniform(-1, 1, len(t)).astype(np.float32); r = np.diff(r, prepend=0); r = (r + np.roll(r, 1)) / 2
+    return r * np.exp(-t * 55) * (1 + 0.7 * np.exp(-((t - 0.012) / 0.004) ** 2))
+
+def shaker(seme):
+    rng = np.random.default_rng(seme); t = np.arange(int(0.05 * SR)) / SR
+    r = np.diff(rng.uniform(-1, 1, len(t)).astype(np.float32), prepend=0)
+    return r * np.minimum(1, t / 0.012) * np.exp(-t * 60)
+
+ALLEGRE = {
+    # 3 · «ukulele allegro»: Do maggiore, 104 battiti, pennate di ukulele, marimba che canta, schiocco di dita
+    3: dict(bpm=104, stile='pennata', accordi=[[67, 60, 64, 72], [67, 62, 67, 71], [69, 60, 64, 69], [69, 60, 65, 69]], basso=[48, 43, 45, 41],
+            canto=[[76, None, 79, 84], [74, None, 79, 83], [72, None, 76, 81], [72, 77, 81, 79]], cassa=[0, 4], dita=[2, 6]),
+    # 4 · «chitarra serena»: Sol maggiore, 88 battiti, arpeggio di chitarra, basso lungo, shaker leggero
+    4: dict(bpm=88, stile='arpeggio', accordi=[[55, 59, 62, 67], [52, 59, 64, 67], [48, 60, 64, 67], [50, 57, 62, 66]], basso=[43, 40, 36, 38],
+            canto=[[None, 74, None, 79], [None, 76, None, 79], [None, 76, None, 72], [None, 74, 78, 81]], cassa=[0], dita=[4]),
+    # 5 · «marimba solare»: Fa maggiore, 112 battiti, marimba che gira, cassa morbida su ogni tempo
+    5: dict(bpm=112, stile='marimba', accordi=[[65, 69, 72, 77], [64, 67, 72, 76], [62, 65, 69, 74], [62, 65, 70, 74]], basso=[41, 36, 38, 34],
+            canto=[[81, None, 84, None], [79, None, 84, 88], [77, None, 81, None], [77, 82, 86, 84]], cassa=[0, 2, 4, 6], dita=[2, 6]),
+}
+
+def musica_allegra(variante, durata):
+    b = ALLEGRE[int(variante)]; n = int(durata * SR); L = np.zeros(n + SR * 3, np.float32); R = np.zeros(n + SR * 3, np.float32)
+    ott = 60 / b['bpm'] / 2; batt = ott * 8  # un ottavo, una battuta
+    def metti(sig, t0, vol, pan=0.5):
+        i = int(t0 * SR)
+        if i >= n: return
+        L[i:i + len(sig)] += sig * vol * (1 - pan) * 2; R[i:i + len(sig)] += sig * vol * pan * 2
+    k = 0
+    while k * batt < durata:
+        t0 = k * batt; acc = b['accordi'][k % 4]; pieno = k >= 1  # la prima battuta entra più leggera
+        metti(corda(b['basso'][k % 4], ott * 3.6, 0.998), t0, 0.30); metti(corda(b['basso'][k % 4], ott * 2.6, 0.998), t0 + ott * 4, 0.24)
+        if b['stile'] == 'pennata':  # giù . giù su . su giù su
+            for q, verso in [(0, 1), (2, 1), (3, -1), (5, -1), (6, 1), (7, -1)]:
+                ordine = acc if verso > 0 else acc[::-1]
+                for j, m in enumerate(ordine):
+                    metti(corda(m, ott * 2.2, 0.994, j), t0 + q * ott + j * 0.011, (0.16 if verso > 0 else 0.10) * (1.15 if q == 0 else 1), 0.36 + 0.09 * j)
+        elif b['stile'] == 'arpeggio':
+            for q, j in enumerate([0, 2, 1, 3, 2, 1, 3, 2]):
+                metti(corda(acc[j], ott * 4.5, 0.997, j), t0 + q * ott, 0.21 if q % 4 == 0 else 0.15, 0.4 + 0.07 * j)
+        else:
+            for q, j in enumerate([0, 2, 1, 3, 0, 2, 3, 1]):
+                metti(marimba(acc[j] - 12 if q % 4 == 0 else acc[j], 0.7), t0 + q * ott, 0.20 if q % 2 == 0 else 0.13, 0.35 + 0.1 * j)
+            for j, m in enumerate(acc[:3]): metti(corda(m, ott * 7, 0.997, j), t0 + j * 0.02, 0.07, 0.5)
+        if pieno:
+            for q, m in enumerate(b['canto'][k % 4]):
+                if m: metti(marimba(m, 1.0), t0 + q * 2 * ott, 0.17 if b['stile'] != 'marimba' else 0.12, 0.62)
+            for q in b['cassa']: metti(cassa(), t0 + q * ott, 0.34)
+            for q in b['dita']: metti(schiocco(k * 8 + q), t0 + q * ott, 0.20, 0.55)
+        for q in range(8): metti(shaker(k * 8 + q), t0 + q * ott, 0.05 if q % 2 else 0.03, 0.7)
+        k += 1
+    st = np.stack([L[:n], R[:n]], axis=1); t = np.arange(n) / SR
+    st *= (np.minimum(1, t / 0.4) * np.minimum(1, (durata - t) / 1.6))[:, None]
+    return st / max(1e-6, np.abs(st).max()) * 0.6
+
+_musica_dolce = musica
+def musica(variante, durata):
+    return musica_allegra(variante, durata) if int(variante) in ALLEGRE else _musica_dolce(variante, durata)
+
+
 def rms_db(a):
     return 20 * math.log10(max(1e-9, float(np.sqrt(np.mean(a ** 2)))))
 
