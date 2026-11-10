@@ -120,12 +120,12 @@ async function mixVoce(a,info,base){
   const appare=s=>s.id==="gancio"?T.gancio:s.id==="slogan"?T.slogan:s.id==="invito"?T.invito:T.frasi[+s.id.split("-")[1]-1];
   const nome={gancio:"Gancio (Celeo presenta)",slogan:"Chiusura · slogan",invito:"Chiusura · invito"};
   fs.writeFileSync(base+"-sincronia.md",["# Sincronia voce e scritte · "+path.basename(base)+".mp4","",
-    "Durata "+sec(info.durata)+" s · voce Piper «Paola» (variante "+a.voce.variante+") · musica base "+a.voce.musica+", "+(esito.musica_db_reale-esito.voce_db).toFixed(0)+" dB rispetto alla voce.","",
+    "Durata "+sec(info.durata)+" s · voce Piper «Serena» · musica base "+a.voce.musica+", "+(esito.musica_db_reale-esito.voce_db).toFixed(0)+" dB rispetto alla voce.","",
     "| Scena | La scritta appare | La voce inizia | La voce finisce | La scritta cambia | Testo a schermo | Testo detto |","|---|---|---|---|---|---|---|",
     ...a.fatti.map(s=>"| "+(nome[s.id]||"Frase "+s.id.split("-")[1])+" | "+sec(appare(s))+" s | "+sec(s.inizio_ms)+" s | "+sec(s.inizio_ms+s.durata_ms)+" s | "+sec(cambio(s))+" s | "+String(s.testo).replace(/\*/g,"").replace(/ \/ /g," ")+" | "+s.detto+" |"),"",
     "«Testo detto» è il testo dato alla voce: le stesse parole dello schermo, con sole correzioni di pronuncia («celea punto it», «A I»).",
     "Sullo schermo restano anche le scritte dentro la scena (battute al telefono, etichette, disponibilità), che la voce non legge.","",
-    "Testo del post: aggiungere in fondo «Voce generata con AI».",""].join("\n"));
+    "Testo del post: aggiungere in fondo «Voce generata con AI (Piper, voce Serena, CC BY 4.0)».",""].join("\n"));
   const tardi=a.fatti.filter(s=>s.inizio_ms+s.durata_ms>cambio(s)); if(tardi.length) console.log("    ATTENZIONE sincronia: la voce finisce dopo il cambio della scritta in: "+tardi.map(s=>s.id).join(", "));
   return wav;
 }
@@ -153,7 +153,8 @@ function annuncio(spec){
     "## I tre ganci (primi 2 secondi)","",...spec.ganci.map((g,i)=>(i+1)+". **"+g.versione+"** · «"+String(g.gancio).replace(/\*/g,"").replace(/ \/ /g," ")+"» · scena: "+(g.scena||spec.scena)),"",
     "## File","",...spec.ganci.flatMap(g=>MISURE_AD.map(m=>"- `"+spec.nicchia+"-"+g.versione+"-"+m+".mp4`")),"",
     "## Controllo delle frasi vietate","",c.errori.length?"**DA CORREGGERE:** "+c.errori.join("; "):"Superato: niente «24 ore su 24» o «24/7», nessuna promessa di risultato, nessun concorrente, nessun prezzo; scritta «assistente AI» sempre visibile; disponibilità scritta.",
-    ...(c.avvisi.length?["","Avvisi: "+c.avvisi.join("; ")]:[]),"","Musica: nessuna traccia nel file (audio muto). Se serve, solo brani senza diritti dalla libreria di Meta.",""].join("\n");
+    ...(c.avvisi.length?["","Avvisi: "+c.avvisi.join("; ")]:[]),"","Musica: nei file muti nessuna traccia. Nei file «…-voce.mp4» voce Piper «Serena» e base musicale originale di Celea.","",
+    "## Versioni con voce (file «…-voce.mp4»)","","In fondo al testo dell'annuncio aggiungere: «Voce generata con AI (Piper, voce Serena, CC BY 4.0)».",""].join("\n");
 }
 
 (async()=>{

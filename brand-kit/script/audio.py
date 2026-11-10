@@ -6,7 +6,7 @@
   python3 brand-kit/script/audio.py musica 1 30 base.wav  solo la base musicale (variante 1 o 2, durata in secondi)
 
 Lo chiama esporta.js con l'opzione --voce; a mano serve solo per ascoltare la musica.
-Voce: Piper TTS, modello it_IT-paola-medium (dati con licenza CC0 1.0). Il file del modello (63 MB) non sta nel
+Voce: Piper TTS, modello it_IT-serena-high (dati con licenza CC BY 4.0: va citata la fonte). Il file del modello (114 MB) non sta nel
 repository: va in brand-kit/voci/ (vedi brand-kit/voci/LEGGIMI.md).
 Musica: scritta qui sotto con il codice (onde sinusoidali), originale, senza campioni.
 """
@@ -15,15 +15,15 @@ import numpy as np
 
 SR = 44100
 QUI = os.path.dirname(os.path.abspath(__file__))
-MODELLO = os.path.join(QUI, '..', 'voci', 'it_IT-paola-medium.onnx')
+MODELLO = os.path.join(QUI, '..', 'voci', 'it_IT-serena-high.onnx')  # voce scelta da William il 10/11/2026
 
 # Parametri di Piper. «corpo» = le frasi della scena; «forte» = gancio iniziale e chiusura (un po' più di energia).
 # length = velocità (più alto = più lento; 1.0 è il normale), noise = variazione dell'intonazione, noise_w = variazione del ritmo.
 VARIANTI = {
     'A': {'corpo': dict(length=1.08, noise=0.667, noise_w=0.80, pausa=0.28, volume=1.0),
           'forte': dict(length=1.02, noise=0.72, noise_w=0.85, pausa=0.24, volume=1.12)},
-    'B': {'corpo': dict(length=1.16, noise=0.80, noise_w=0.95, pausa=0.36, volume=1.0),
-          'forte': dict(length=1.08, noise=0.85, noise_w=1.00, pausa=0.30, volume=1.12)},
+    'B': {'corpo': dict(length=1.12, noise=0.75, noise_w=0.90, pausa=0.30, volume=1.0),   # come nel campione approvato
+          'forte': dict(length=1.05, noise=0.75, noise_w=0.90, pausa=0.30, volume=1.1)},
 }
 
 
@@ -76,6 +76,11 @@ def sintesi(lav):
                         '--noise-scale', str(p['noise']), '--noise-w-scale', str(p['noise_w']),
                         '--sentence-silence', str(p['pausa']), '--volume', str(p['volume'])],
                        input=s['detto'].encode(), check=True, stderr=subprocess.DEVNULL)
+        # voce più limpida: toglie i bassi inutili, schiarisce le consonanti, tiene il volume uniforme
+        pulito = s['wav'].replace('.wav', '-p.wav')
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', s['wav'], '-af',
+                        'highpass=f=85,equalizer=f=3200:t=q:w=1.2:g=3,acompressor=threshold=-22dB:ratio=3:attack=5:release=120', pulito], check=True)
+        s['wav'] = pulito
         a = taglia_silenzio(leggi_wav(s['wav']))
         s['durata_ms'] = int(len(a) * 1000 / SR)
     return lav

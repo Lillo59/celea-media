@@ -32,8 +32,8 @@ Solo file: nessuna campagna creata, nessuna spesa. Nessun prezzo nel video e nel
 
 Superato: niente «24 ore su 24» o «24/7», nessuna promessa di risultato, nessun concorrente, nessun prezzo; scritta «assistente AI» sempre visibile; disponibilità scritta.
 
-Musica: nessuna traccia nel file (audio muto). Se serve, solo brani senza diritti dalla libreria di Meta.
+Musica: nei file muti nessuna traccia. Nei file «…-voce.mp4» voce Piper «Serena» e base musicale originale di Celea.
 
 ## Versioni con voce (file «…-voce.mp4»)
 
-In fondo al testo dell'annuncio aggiungere: «Voce generata con AI».
+In fondo al testo dell'annuncio aggiungere: «Voce generata con AI (Piper, voce Serena, CC BY 4.0)».

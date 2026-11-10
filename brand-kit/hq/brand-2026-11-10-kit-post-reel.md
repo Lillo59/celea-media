@@ -68,47 +68,46 @@ pubblicità, video senza musica. Su GitHub niente tolto, nessuna spesa, nessun c
 
 ## Voce e musica nei reel (richiesta di William, 10/11/2026) · PROVA, in attesa del sì
 
-**Stato:** fatti solo 3 reel di prova. Gli altri si fanno dopo il sì di William. I reel muti non sono stati toccati.
+**Stato:** fatti solo 3 reel di prova, rifatti dopo il primo ascolto di William. Gli altri si fanno dopo il suo sì.
+I reel muti non sono stati toccati.
 
-**Voce.** Piper TTS (gratuito, open source, licenza MIT), voce `it_IT-paola-medium`, italiana, femminile.
-Licenza dei dati della voce: **CC0 1.0** (uso commerciale permesso, nessuna citazione dovuta), letta il 10/11/2026.
-Fonte del modello: https://huggingface.co/rhasspy/piper-voices/tree/main/it/it_IT/paola/medium ·
-fonte dei dati: https://huggingface.co/datasets/paolapersico1/Voice-Dataset-Italian.
-Il file del modello (63 MB) non è nel repository: istruzioni in `brand-kit/voci/LEGGIMI.md`.
-Voce maschile per Marco: l'unica italiana di Piper è `riccardo`, di qualità «x_low» (16.000 Hz): non usata.
-Marco ha la stessa voce narrante. Scartata anche `serena` (CC-BY-4.0, dati sintetici).
+**Voce scelta da William:** Piper TTS (gratuito, open source, licenza MIT), voce `it_IT-serena-high`, italiana, femminile.
+Licenza dei dati: **CC BY 4.0** (uso commerciale permesso, con citazione). Fonte del modello:
+https://huggingface.co/rhasspy/piper-voices/tree/main/it/it_IT/serena/high · fonte dei dati:
+https://huggingface.co/datasets/committa/serena-synthetic-it-27h. Citazione nel testo del post:
+«Voce generata con AI (Piper, voce Serena, CC BY 4.0)». Il file del modello (114 MB) non è nel repository:
+istruzioni in `brand-kit/voci/LEGGIMI.md`.
+Prima prova con `it_IT-paola-medium` (CC0): bocciata da William, troppo robotica. Voce maschile per Marco: non c'è
+una voce italiana di Piper di qualità sufficiente; Marco ha la stessa voce narrante.
+**Da far verificare a Legale:** i dati di Serena sono sintetici (voce clonata con un altro modello); la licenza
+dichiarata è CC BY 4.0 ma non è scritto di chi sia la voce d'origine.
 
-**Come recita.** Due varianti provate sul primo reel: A (velocità 1,08) e B (velocità 1,16, più pausa tra le frasi,
-intonazione più variata). Scelta la **B**: è la più lenta delle due (circa 17 caratteri al secondo) e lascia più pausa.
-La scelta è fatta sui numeri: da questa sessione l'audio non si può ascoltare, quindi il giudizio «a orecchio» resta a William.
-Gancio e chiusura sono detti un po' più svelti e a volume un po' più alto.
+**Come recita.** Velocità 1,12 nelle scene e 1,05 su gancio e chiusura (1,0 è il normale di Piper), pausa di 0,3 secondi
+tra le frasi, voce schiarita (filtro sui bassi, più presenza sulle consonanti, volume uniforme). Da questa sessione
+l'audio non si può ascoltare: il giudizio «a orecchio» è di William.
 
 **Regola rispettata.** La voce dice solo il gancio, i sottotitoli, lo slogan e «Provi la demo gratis su celea.it», nello
-stesso ordine dello schermo. Ogni frase parte quando appare la scritta e finisce prima che cambi: se la frase detta è più
-lunga, la scena si allunga (la voce non viene accelerata). Le scritte restano. Per ogni reel c'è la tabella
-`…-voce-sincronia.md` con i secondi. Nei reel con voce la chiusura a schermo è la stessa per tutti.
+stesso ordine dello schermo. Ogni frase parte quando appare la scritta e finisce prima che cambi: se è più lunga, la
+scena si allunga (la voce non viene accelerata). Le scritte restano. Per ogni reel c'è `…-voce-sincronia.md` con i secondi.
 
-**Musica.** Due basi strumentali originali scritte con il codice (`brand-kit/script/audio.py`): onde sinusoidali, nessun
-campione, niente scaricato. Base 1 in Re maggiore a 76 battiti; base 2 in Fa maggiore a 68. Da ascoltare:
-`brand-kit/audio/base-musicale-1.m4a` e `-2.m4a`.
+**Musica.** Basi strumentali originali scritte con il codice (`brand-kit/script/audio.py`), senza campioni e senza nulla
+di scaricato. Le prime due (tappeto morbido) sono state bocciate da William. Tre nuove, più allegre: 3 «ukulele
+allegro», 4 «chitarra serena», 5 «marimba solare». William deve ancora scegliere: nella prova ce n'è una per reel.
 
-**Missaggio.** Voce in primo piano, musica 18 dB sotto, entrata e uscita sfumate, nessun taglio. Audio AAC stereo
-44.100 Hz, normalizzato a circa −14 LUFS con picchi sotto −2 dB.
+**Missaggio.** Voce in primo piano, musica 18 dB sotto, nessun taglio. AAC stereo 44.100 Hz, circa −14 LUFS.
 
-**Comando:** `node brand-kit/script/esporta.js <cartella dei testi> --voce` (opzioni `--variante`, `--musica`, `--solo`).
+**Comando:** `node brand-kit/script/esporta.js <cartella dei testi> --voce --musica 3` (anche `--solo`).
 
 **File nuovi della prova** (sul ramo `claude/celea-post-reel-kit-adg02t`, non ancora su `main`):
 
 | Reel | File | Durata | Musica |
 |---|---|---|---|
-| Sofia · linea occupata | `brand-kit/esempi/post-2026-11-17-1-voce.mp4` | 27 s | base 1 |
-| Marco · chiamata della sera (pubblicità) | `brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1920-voce.mp4` | 19 s | base 1 |
-| Celea Uffici · dietro le quinte | `brand-kit/esempi/post-2026-11-21-1-voce.mp4` | 31 s | base 2 |
+| Sofia · linea occupata | `brand-kit/esempi/post-2026-11-17-1-voce.mp4` | 28 s | 3 · ukulele allegro |
+| Marco · chiamata della sera (pubblicità) | `brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1920-voce.mp4` | 20 s | 4 · chitarra serena |
+| Celea Uffici · dietro le quinte | `brand-kit/esempi/post-2026-11-21-1-voce.mp4` | 32 s | 5 · marimba solare |
 
-Accanto a ognuno: `…-voce-sincronia.md`, `…-voce-copertina.jpg`, `…-voce-fotogramma.jpg`.
-
-**Da sapere.** Con la voce i reel si allungano di 4–5 secondi; quello di Celea Uffici arriva a 30,6 secondi, appena sopra
-i 30. Nel testo di ogni post con voce va aggiunto in fondo «Voce generata con AI».
+**Da sapere.** Con la voce i reel si allungano di 4–5 secondi; quello di Celea Uffici supera i 30 (31,7 s): per
+rientrare va tolta una frase.
 
 ## Elenco dei file, per la classifica e il calendario (Marketing, Brand, Strategia)
 

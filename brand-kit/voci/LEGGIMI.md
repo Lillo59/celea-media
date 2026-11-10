@@ -1,20 +1,24 @@
 # Voce dei reel
 
 - **Motore:** Piper TTS (gratuito, open source, licenza MIT). Si installa con `pip install piper-tts`.
-- **Voce:** `it_IT-paola-medium` (italiana, femminile, 22.050 Hz).
-- **Licenza:** i dati della voce sono pubblicati con licenza **CC0 1.0** (pubblico dominio: uso commerciale permesso,
-  nessun obbligo di citazione). Scheda del modello: `it_IT-paola-medium.MODEL_CARD` in questa cartella.
-- **Fonte del modello:** https://huggingface.co/rhasspy/piper-voices/tree/main/it/it_IT/paola/medium
-- **Fonte dei dati:** https://huggingface.co/datasets/paolapersico1/Voice-Dataset-Italian (licenza letta il 10/11/2026: `cc0-1.0`)
+- **Voce scelta da William il 10/11/2026:** `it_IT-serena-high` (italiana, femminile, qualità alta, 22.050 Hz).
+- **Licenza:** dati della voce con licenza **CC BY 4.0**: uso commerciale permesso, **con citazione della fonte**.
+  Scheda del modello: `it_IT-serena-high.MODEL_CARD` in questa cartella (letta il 10/11/2026).
+- **Fonte del modello:** https://huggingface.co/rhasspy/piper-voices/tree/main/it/it_IT/serena/high
+- **Fonte dei dati:** https://huggingface.co/datasets/committa/serena-synthetic-it-27h (dati sintetici, 27 ore)
+- **Citazione da usare:** «Voce generata con AI (Piper, voce Serena, CC BY 4.0)», in fondo al testo del post.
 
-Il file del modello (`it_IT-paola-medium.onnx`, 63 MB) **non è nel repository**: va scaricato dalla fonte qui sopra e
-messo in questa cartella insieme a `it_IT-paola-medium.onnx.json`.
+Il file del modello (`it_IT-serena-high.onnx`, 114 MB) **non è nel repository**: va scaricato dalla fonte qui sopra e
+messo in questa cartella insieme a `it_IT-serena-high.onnx.json`.
 
-## Voci scartate
+## Voci provate e non scelte
 
-- `it_IT-riccardo-x_low` (maschile): licenza permissiva (dati M-AILABS), ma qualità «x_low» a 16.000 Hz: troppo bassa
-  per un reel. Per questo Marco oggi ha la stessa voce narrante femminile.
-- `it_IT-serena` (femminile): licenza CC-BY-4.0, uso commerciale permesso ma con citazione obbligatoria; i dati sono
-  sintetici (voce clonata con un altro modello). Scartata per prudenza: Paola ha la licenza più semplice.
+- `it_IT-paola-medium` (femminile, licenza CC0 1.0): prima prova, giudicata troppo robotica.
+- `it_IT-riccardo-x_low` (maschile): qualità troppo bassa (16.000 Hz), mai usata.
+- Kokoro «Sara» e «Nicola» (altro motore, licenza Apache 2.0): ascoltate come campioni, non scelte.
 
-Nei testi dei post con voce va scritto in fondo: «Voce generata con AI».
+## Da far verificare a Legale
+
+I dati di Serena sono sintetici: la scheda dice che sono stati generati con un altro modello vocale in modalità
+«clonazione». La licenza dichiarata è CC BY 4.0, ma non è scritto di chi sia la voce d'origine. Per le pubblicità a
+pagamento conviene un controllo di Legale prima dell'uscita.
