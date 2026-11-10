@@ -1,0 +1,42 @@
+# Pubblicità Meta · Celea Uffici · solo file, nessuna campagna e nessuna spesa. NESSUN PREZZO.
+tipo: pubblicita
+nicchia: uffici
+scena: ufficio
+disponibilita: uffici
+slogan: Un ufficio di assistenti AI. / *Decide sempre Lei.*
+annuncio_titolo: Un ufficio di assistenti AI
+annuncio_testo: Celea Uffici: una direttrice, reparti con compiti e orari, una memoria comune. Gli assistenti AI preparano il lavoro; spese, firme e contatti li decide Lei. Si parte da una chiamata di 30 minuti. Provi la demo gratis su celea.it.
+annuncio_pulsante: Scopri di più
+---
+versione: linea-occupata
+sfondo: sabbia
+celeo: destra
+gancio: Linea *occupata*? / L'ufficio risponde.
+frasi:
+- All'ingresso risponde un'assistente AI.
+- L'appuntamento va dritto in agenda.
+- I reparti preparano messaggi e post.
+- Scadenze, testi e preventivi in ordine.
+- A Lei arriva il riepilogo. Decide sempre Lei.
+---
+versione: chiamata-della-sera
+sfondo: notte
+celeo: sinistra
+gancio: Sono le *21:00*. / Chi prepara il lavoro di domani?
+frasi:
+- Un ufficio di assistenti AI, con i suoi reparti.
+- Ognuno ha compiti e orari, scelti insieme.
+- Preparano testi, risposte e scadenze.
+- Legale rilegge, Vendite prepara i preventivi.
+- Spese, firme e contatti restano a Lei.
+---
+versione: lo-provi-adesso
+sfondo: crema
+celeo: destra
+gancio: Lo provi *adesso*.
+frasi:
+- Guardi un ufficio di assistenti AI al lavoro.
+- Segreteria e agenda, senza perdere il filo.
+- Marketing e contabilità, ognuno al suo posto.
+- Legale e Vendite preparano, Lei approva.
+- Si parte da una chiamata. Decide sempre Lei.

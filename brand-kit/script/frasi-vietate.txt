@@ -1,0 +1,49 @@
+# Frasi vietate nei post, nei reel e nelle pubblicità di Celea.
+# Una regola per riga (maiuscole e minuscole non contano). Le righe che iniziano con # sono note.
+# Chi conosce le espressioni regolari può usarle; altrimenti basta scrivere la frase così com'è.
+
+[vietate]
+24\s*ore\s*su\s*24
+24\s*/\s*7
+\bh\s?24\b
+\b24\s?h\b
+7 giorni su 7
+non si ferma mai
+non dorme mai
+sempre disponibile
+sempre attiv[oa]
+senza sosta
+
+[promesse]
+garanti\w+
+raddoppi\w+
+triplic\w+
+zero chiamate perse
+nessuna chiamata persa
+mai più (una )?chiamat[ae] pers[ae]
+non perd\w+ più
+non perder\w+ (mai|più)
+100\s?%
+risultati (certi|sicuri|assicurati)
+più fatturato
+aument\w+ (il |i |le |del )?(fatturato|guadagn\w+|clienti|prenotazioni)
+riempi\w+ l'agenda
+il migliore
+la migliore
+numero uno
+
+[concorrenti]
+# Scrivere qui, uno per riga, i nomi dei concorrenti che non devono mai comparire.
+# (Lasciato vuoto apposta: l'elenco lo tiene il reparto Brand.)
+
+[prezzi]
+# Solo per le pubblicità: nessun prezzo.
+€
+\beuro\b
+\bEUR\b
+al mese
+/\s?mese
+\bcosta\b
+\bprezz[oi]\b
+\bscont\w+
+\d+\s?%

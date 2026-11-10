@@ -1,0 +1,22 @@
+# Mercoledì 18/11 · formato PRIMA/DOPO · funzione: prenota solo negli orari decisi; Agenda inclusa
+tipo: post
+formato: prima-dopo
+misura: 1080x1080
+sfondo: mare
+celeo: no
+occhiello: Prima e dopo
+titolo: Dai vocali da riascoltare all'*agenda già pronta*
+prima_titolo: Prima
+prima:
+- 0:42 · da riascoltare
+- 1:15 · da riascoltare
+- 0:27 · da riascoltare
+prima_nota: Richieste sparse tra vocali e foglietti.
+dopo_titolo: Con l'Agenda
+dopo:
+- 10:00 | Pulizia · Giulia R. | fissato dall'assistente AI
+- 15:00 | Prima visita · Luca M. | fissato dall'assistente AI
+- 17:00 |
+dopo_nota: Solo negli orari decisi da Lei.
+nota: Illustrazione d'esempio. Agenda inclusa nel piano.
+disponibilita: telefono

@@ -1,0 +1,33 @@
+# Venerdì 20/11 sera · CAROSELLO · formato MINI GUIDA · funzione: WhatsApp, Instagram e Messenger, promemoria, riconoscimento, Google Sheets (con le date)
+tipo: carosello
+formato: guida
+misura: 1080x1350
+sfondo: mare
+disponibilita: telefono, whatsapp, social, promemoria, riconoscimento, sheets
+---
+occhiello: Mini guida
+titolo: Dove risponde l'assistente AI, e *da quando*
+testo: Un canale alla volta, ognuno con la sua data.
+---
+titolo: Al telefono
+testo: Risponde quando non può nessuno: linea occupata, pausa pranzo, sera, sabato e festivi. Dice subito di essere un'assistente AI.
+disponibilita: telefono
+---
+titolo: Su WhatsApp
+testo: Le stesse regole del telefono, anche per iscritto: informazioni, richieste e indicazioni utili.
+disponibilita: whatsapp
+---
+titolo: Su Instagram e Messenger
+testo: Anche i messaggi che arrivano dai social ricevono risposta con le stesse regole. Prima serve l'approvazione di Meta.
+disponibilita: social
+---
+titolo: Promemoria con telefonata
+testo: L'assistente AI chiama il cliente per ricordargli l'appuntamento.
+disponibilita: promemoria
+---
+titolo: Riconosce chi richiama
+testo: Chi ha già chiamato viene riconosciuto, e le richieste si possono esportare su Google Sheets.
+disponibilita: riconoscimento, sheets
+---
+titolo: Prova la demo gratis su *celea.it*
+testo: Scriva il nome della Sua attività e senta come risponde.

@@ -1,0 +1,35 @@
+# Pubblicità Meta · dentisti
+
+Solo file: nessuna campagna creata, nessuna spesa. Nessun prezzo nel video e nel testo.
+
+## Testo dell'annuncio
+
+- **Titolo:** Linea occupata? Risponde Sofia
+- **Testo:** Quando in studio non può rispondere nessuno, risponde Sofia, l'assistente AI di Celea: ascolta la richiesta e fissa l'appuntamento solo negli orari decisi da Lei. Lo dice subito, che è un'AI. Attivazioni da gennaio 2027. Provi la demo gratis su celea.it.
+- **Pulsante:** Scopri di più
+- **Indirizzo:** https://www.celea.it
+- **Disponibilità (già scritta nel video):** Telefono e Agenda: attivazioni da gennaio 2027
+
+## I tre ganci (primi 2 secondi)
+
+1. **linea-occupata** · «Linea occupata. E chi sta chiamando?» · scena: occupato
+2. **chiamata-della-sera** · «Sono le 21:07. Lo studio è chiuso.» · scena: telefonata
+3. **lo-provi-adesso** · «Lo provi adesso.» · scena: demo
+
+## File
+
+- `dentisti-linea-occupata-1080x1350.mp4`
+- `dentisti-linea-occupata-1080x1920.mp4`
+- `dentisti-linea-occupata-1080x1080.mp4`
+- `dentisti-chiamata-della-sera-1080x1350.mp4`
+- `dentisti-chiamata-della-sera-1080x1920.mp4`
+- `dentisti-chiamata-della-sera-1080x1080.mp4`
+- `dentisti-lo-provi-adesso-1080x1350.mp4`
+- `dentisti-lo-provi-adesso-1080x1920.mp4`
+- `dentisti-lo-provi-adesso-1080x1080.mp4`
+
+## Controllo delle frasi vietate
+
+Superato: niente «24 ore su 24» o «24/7», nessuna promessa di risultato, nessun concorrente, nessun prezzo; scritta «assistente AI» sempre visibile; disponibilità scritta.
+
+Musica: nessuna traccia nel file (audio muto). Se serve, solo brani senza diritti dalla libreria di Meta.

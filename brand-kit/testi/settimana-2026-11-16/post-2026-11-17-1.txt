@@ -1,0 +1,16 @@
+# Martedì 17/11 · REEL · formato SCENETTA (linea occupata a pranzo) · funzione: risponde quando la linea è occupata
+tipo: reel
+formato: scenetta
+scena: occupato
+nicchia: dentisti
+sfondo: crema
+celeo: sinistra
+occhiello: Ore 12:48, in studio
+gancio: Pausa pranzo. / La linea è *occupata*.
+frasi:
+- Arriva un'altra chiamata, ma la linea è occupata.
+- Invece di squillare a vuoto, passa all'assistente AI.
+- Sofia risponde e dice subito di essere un'AI.
+- Ascolta la richiesta, senza dare consigli medici.
+- Alla segreteria arriva tutto scritto, da confermare.
+disponibilita: telefono

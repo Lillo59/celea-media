@@ -1,0 +1,17 @@
+# Giovedì 19/11 · REEL · formato CELEO SPIEGA · funzione: urgenze passate subito al titolare, con un riassunto di due frasi
+tipo: reel
+formato: celeo-spiega
+scena: urgenza
+nicchia: dentisti
+sfondo: limone
+celeo: destra
+occhiello: Celeo Le spiega
+gancio: Sabato mattina. / Arriva un'*urgenza*.
+fumetto: Le faccio vedere cosa succede.
+frasi:
+- Un paziente chiama: ha un dolore forte.
+- L'assistente AI non dà consigli medici: passa la chiamata.
+- Prima scrive un riassunto di due frasi.
+- Poi chiama il reperibile dello studio.
+- E li mette in linea: da lì parla una persona.
+disponibilita: telefono

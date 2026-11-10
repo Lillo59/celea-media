@@ -1,0 +1,13 @@
+# Venerdì 20/11 mattina · formato NUMERO CON FONTE · funzione: avviso AI all'inizio della chiamata
+tipo: post
+formato: numero
+misura: 1080x1350
+sfondo: notte
+celeo: sinistra
+anello: basso-dx
+occhiello: Un numero vero
+numero_grande: 50
+titolo: È l'articolo dell'AI Act sulla *trasparenza*.
+testo: Chi parla con un'intelligenza artificiale deve saperlo. Per questo l'assistente lo dice all'inizio di ogni chiamata.
+fonte: Regolamento (UE) 2024/1689, articolo 50
+disponibilita: telefono

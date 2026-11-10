@@ -1,0 +1,37 @@
+# Pubblicità Meta · ricettive · Elena · solo file, nessuna campagna e nessuna spesa. NESSUN PREZZO.
+tipo: pubblicita
+nicchia: ricettive
+disponibilita: telefono
+annuncio_titolo: Reception occupata? Risponde Elena
+annuncio_testo: Quando alla reception non può rispondere nessuno, risponde Elena, l'assistente AI di Celea: dà le informazioni, prende la richiesta e gliela lascia scritta. Lo dice subito, che è un'AI. Attivazioni da gennaio 2027. Provi la demo gratis su celea.it.
+annuncio_pulsante: Scopri di più
+---
+versione: linea-occupata
+sfondo: limone
+celeo: destra
+gancio: Linea *occupata*. / E chi sta chiamando?
+scena: occupato
+frasi:
+- La reception è impegnata, e il telefono squilla.
+- Risponde Elena, l'assistente AI della struttura.
+- Alla reception arriva la richiesta, già scritta.
+---
+versione: chiamata-della-sera
+sfondo: notte
+celeo: sinistra
+gancio: Sono le *22:15*. / La reception è chiusa.
+scena: telefonata
+frasi:
+- Un ospite chiama per una camera doppia.
+- Elena, l'assistente AI, risponde e prende i dati.
+- La richiesta arriva a Lei, pronta da confermare.
+---
+versione: lo-provi-adesso
+sfondo: crema
+celeo: destra
+gancio: Lo provi *adesso*.
+scena: demo
+frasi:
+- Scriva il nome della Sua struttura.
+- Elena, l'assistente AI, risponde col Suo nome.
+- La demo è gratis, dal browser.

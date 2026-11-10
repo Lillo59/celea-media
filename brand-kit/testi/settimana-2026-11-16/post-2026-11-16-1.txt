@@ -1,0 +1,11 @@
+# Lunedì 16/11 · formato DOMANDA · funzione: risponde a qualsiasi ora quando non può nessuno
+tipo: post
+formato: domanda
+misura: 1080x1350
+sfondo: sabbia
+celeo: destra
+occhiello: Una domanda per Lei
+titolo: Alle *21:00* chi risponde al telefono del Suo studio?
+testo: Sera, pausa pranzo, linea occupata: l'assistente AI di Celea risponde quando non può nessuno e Le lascia la richiesta già scritta.
+invito: Ce lo scriva nei commenti
+disponibilita: telefono

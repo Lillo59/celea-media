@@ -1,0 +1,13 @@
+# Domenica 22/11 · STORIA · formato LO SAPEVI CHE · funzione: cliniche veterinarie con Leandro (nessun consiglio su farmaci, dosi o cure) e avviso AI
+tipo: storia
+formato: lo-sapevi
+misura: 1080x1920
+sfondo: terra
+celeo: sinistra
+anello: alto-sx
+nicchia: veterinari
+occhiello: Lo sapevi che…
+titolo: Leandro non dà consigli su *farmaci, dosi o cure*.
+testo: È l'assistente AI per le cliniche veterinarie: lo dice all'inizio della chiamata, prende la richiesta e passa subito le emergenze alla clinica.
+nota: Leandro è un nome d'esempio.
+disponibilita: telefono

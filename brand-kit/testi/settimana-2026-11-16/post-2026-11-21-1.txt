@@ -1,0 +1,19 @@
+# Sabato 21/11 · REEL · formato DIETRO LE QUINTE · funzione: Celea Uffici, l'ufficio con i reparti
+tipo: reel
+formato: dietro-le-quinte
+scena: ufficio
+sfondo: sabbia
+celeo: destra
+occhiello: Celea Uffici
+gancio: Dietro le quinte: / l'*ufficio* di Celea.
+fumetto: Venga, Le faccio strada.
+frasi:
+- All'ingresso squilla il telefono: risponde un'assistente AI.
+- L'appuntamento va dritto in agenda.
+- Un reparto scrive ai clienti, un altro prepara i post.
+- La contabilità tiene in ordine le scadenze.
+- Legale rilegge i testi, Vendite prepara i preventivi.
+- Al titolare arriva il riepilogo. Decide sempre Lei.
+slogan: Un ufficio di assistenti AI. / *Decide sempre Lei.*
+invito: Scopra Celea Uffici
+disponibilita: uffici
