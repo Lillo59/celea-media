@@ -211,9 +211,54 @@ def musica_allegra(variante, durata):
     st *= (np.minimum(1, t / 0.4) * np.minimum(1, (durata - t) / 1.6))[:, None]
     return st / max(1e-6, np.abs(st).max()) * 0.6
 
+
+# ---------------------------------------------------------------- pad armoniosi (varianti 6 e 7)
+# Tappeti caldi e consonanti in tonalità maggiore: più voci leggermente scordate tra loro (effetto coro),
+# accordi pieni (none e settime maggiori) che si sciolgono uno nell'altro, basso morbido e poche note di pianoforte ovattato.
+PAD = {
+    # 6 · «pad caldo»: Do maggiore, un accordo ogni 4 secondi
+    6: dict(passo=4.0, accordi=[[48, 55, 60, 64, 67, 74], [41, 53, 57, 60, 64, 69], [45, 52, 57, 60, 64, 67], [43, 55, 59, 62, 67, 69]],
+            piano=[[76, 79], [72, 76], [79, 76], [74, 71]]),
+    # 7 · «pad luminoso»: Sol maggiore, un accordo ogni 3,6 secondi, pianoforte un po' più presente
+    7: dict(passo=3.6, accordi=[[43, 55, 59, 62, 66, 71], [40, 52, 55, 59, 62, 67], [48, 55, 60, 64, 67, 74], [50, 57, 62, 66, 69, 76]],
+            piano=[[74, 78, 83], [71, 76, 79], [76, 79, 84], [78, 81, 86]]),
+}
+
+def voce_pad(m, dur):
+    """Una nota di tappeto: tre voci scordate di pochi centesimi, armonici dolci, attacco e rilascio lenti."""
+    t = np.arange(int(dur * SR)) / SR; f = nota(m); s = np.zeros(len(t), np.float32)
+    for sc, fase in [(-0.004, 0.0), (0.0, 1.3), (0.004, 2.1)]:
+        for h, amp in [(1, 1.0), (2, 0.42), (3, 0.20), (4, 0.09), (5, 0.04)]:
+            s += amp * np.sin(2 * math.pi * f * h * (1 + sc) * t + fase * h)
+    inv = np.minimum(1, t / 1.4) ** 1.5 * np.minimum(1, (dur - t) / 1.8) ** 1.5
+    return (s * inv / 5).astype(np.float32)
+
+def piano_ovattato(m):
+    t = np.arange(int(3.2 * SR)) / SR; f = nota(m)
+    s = np.sin(2 * math.pi * f * t) + 0.30 * np.sin(2 * math.pi * 2 * f * t) * np.exp(-t * 3) + 0.10 * np.sin(2 * math.pi * 3 * f * t) * np.exp(-t * 6)
+    return (s * np.exp(-t * 1.5) * np.minimum(1, t / 0.012)).astype(np.float32)
+
+def musica_pad(variante, durata):
+    b = PAD[int(variante)]; n = int(durata * SR); L = np.zeros(n + SR * 6, np.float32); R = np.zeros(n + SR * 6, np.float32)
+    def metti(sig, t0, vol, pan):
+        i = int(t0 * SR)
+        if i < n: L[i:i + len(sig)] += sig * vol * (1 - pan) * 2; R[i:i + len(sig)] += sig * vol * pan * 2
+    k = 0; passo = b['passo']
+    while k * passo < durata:
+        acc = b['accordi'][k % 4]; t0 = k * passo
+        for j, m in enumerate(acc):  # ogni accordo dura più del passo: si scioglie nel successivo
+            metti(voce_pad(m, passo + 2.2), t0, 0.16 if j == 0 else 0.10, 0.5 if j == 0 else 0.25 + 0.5 * ((j * 3) % 5) / 4)
+        for q, m in enumerate(b['piano'][k % 4]):
+            metti(piano_ovattato(m), t0 + 0.6 + q * passo / len(b['piano'][k % 4]) * 0.8, 0.09, 0.42 + 0.16 * (q % 2))
+        k += 1
+    st = np.stack([L[:n], R[:n]], axis=1); t = np.arange(n) / SR
+    st *= (np.minimum(1, t / 1.0) * np.minimum(1, (durata - t) / 2.0))[:, None]
+    return st / max(1e-6, np.abs(st).max()) * 0.55
+
 _musica_dolce = musica
 def musica(variante, durata):
-    return musica_allegra(variante, durata) if int(variante) in ALLEGRE else _musica_dolce(variante, durata)
+    v = int(variante)
+    return musica_pad(v, durata) if v in PAD else musica_allegra(v, durata) if v in ALLEGRE else _musica_dolce(v, durata)
 
 
 def rms_db(a):

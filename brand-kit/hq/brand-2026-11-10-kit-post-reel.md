@@ -91,20 +91,22 @@ stesso ordine dello schermo. Ogni frase parte quando appare la scritta e finisce
 scena si allunga (la voce non viene accelerata). Le scritte restano. Per ogni reel c'è `…-voce-sincronia.md` con i secondi.
 
 **Musica.** Basi strumentali originali scritte con il codice (`brand-kit/script/audio.py`), senza campioni e senza nulla
-di scaricato. Le prime due (tappeto morbido) sono state bocciate da William. Tre nuove, più allegre: 3 «ukulele
-allegro», 4 «chitarra serena», 5 «marimba solare». William deve ancora scegliere: nella prova ce n'è una per reel.
+di scaricato. Bocciate da William: le prime due (1 e 2, tappeto troppo «mistico») e le tre ritmate (3 ukulele,
+4 chitarra, 5 marimba). In prova ora, su sua richiesta, due tappeti armoniosi in tonalità maggiore: 6 «pad caldo»
+(Do maggiore) e 7 «pad luminoso» (Sol maggiore), con accordi pieni che si sciolgono uno nell'altro e poche note di
+pianoforte ovattato. William deve ancora dire sì.
 
 **Missaggio.** Voce in primo piano, musica 18 dB sotto, nessun taglio. AAC stereo 44.100 Hz, circa −14 LUFS.
 
-**Comando:** `node brand-kit/script/esporta.js <cartella dei testi> --voce --musica 3` (anche `--solo`).
+**Comando:** `node brand-kit/script/esporta.js <cartella dei testi> --voce --musica 6` (anche `--solo`).
 
 **File nuovi della prova** (sul ramo `claude/celea-post-reel-kit-adg02t`, non ancora su `main`):
 
 | Reel | File | Durata | Musica |
 |---|---|---|---|
-| Sofia · linea occupata | `brand-kit/esempi/post-2026-11-17-1-voce.mp4` | 28 s | 3 · ukulele allegro |
-| Marco · chiamata della sera (pubblicità) | `brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1920-voce.mp4` | 20 s | 4 · chitarra serena |
-| Celea Uffici · dietro le quinte | `brand-kit/esempi/post-2026-11-21-1-voce.mp4` | 32 s | 5 · marimba solare |
+| Sofia · linea occupata | `brand-kit/esempi/post-2026-11-17-1-voce.mp4` | 28 s | 6 · pad caldo |
+| Marco · chiamata della sera (pubblicità) | `brand-kit/pubblicita/immobiliare/immobiliare-chiamata-della-sera-1080x1920-voce.mp4` | 19 s | 7 · pad luminoso |
+| Celea Uffici · dietro le quinte | `brand-kit/esempi/post-2026-11-21-1-voce.mp4` | 32 s | 6 · pad caldo |
 
 **Da sapere.** Con la voce i reel si allungano di 4–5 secondi; quello di Celea Uffici supera i 30 (31,7 s): per
 rientrare va tolta una frase.
