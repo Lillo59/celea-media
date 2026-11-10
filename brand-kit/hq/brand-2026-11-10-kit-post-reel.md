@@ -108,9 +108,12 @@ misure della stessa pubblicità hanno la stessa musica. Bocciate: 1 e 2 (tappeto
 
 L'elenco completo con i link diretti è qui sotto e in `brand-kit/hq/elenco-file.md`; le anteprime in `brand-kit/esempi/indice.html`.
 
-**Fuori misura, da decidere.** Con la voce i video si allungano. Il reel di Celea Uffici dura 32 secondi (il limite
-chiesto era 30). Delle 45 pubblicità con voce, 25 superano i 20 secondi chiesti (quelle di Celea Uffici arrivano a
-27). Per rientrare vanno accorciate o tolte delle frasi nei testi: la voce non è stata accelerata.
+**Durate: deciso da William.** Con la voce i video si allungano (reel di Celea Uffici 32 secondi; 25 pubblicità su 45
+oltre i 20 secondi, fino a 27). William ha detto che va bene così: conta che voce e scritte siano allineate.
+
+**Controllo dell'allineamento (10/11/2026).** Su tutti i 48 video, 313 frasi: misurato sull'audio vero di ogni file il
+momento in cui parte la voce e confrontato con il momento in cui appare la scritta. Scarto massimo 0,24 secondi, nessuna
+frase fuori tolleranza (0,3 secondi); ogni frase finisce prima che la scritta cambi.
 
 ## Elenco dei file, per la classifica e il calendario (Marketing, Brand, Strategia)
 
